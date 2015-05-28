@@ -36,33 +36,46 @@
 		</div>
 		<div class="app-body">
 			<div class=" search">
-			  <input type="text" placeholder="Search Youtube" class="span3">
+			  <input type="text" placeholder="Search" class="span3">
 			</div>
 		<section class="slider">
 			<div class="list-wrapper">
-		
+
 					<ul class="video slides list-pres span4" style="display: block;">
-						
+
 					</ul>
 			</div>
 		</section>
 </div>
 	<!-- Les Javascripts -->
+
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="js/jquery-2.0.1.min.js"></script>
 	<script src="js/jquery.flexslider.js"></script>
 	<script src="js/quo.js"></script>
 	<script src="js/mustache.js"></script>
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
 	<script src="js/remote.js" type="text/javascript"></script>	
-	<script id="videoTpl" type="text/template">
-		<li class="block">
-			<div class="tile">
-				<img class="tile-image big-illustration" src="{{thumbnail}}"/>			
-				<h3 class="tile-title">{{title}}</h3>
-				<p>Duration: {{duration}}</p>
-				<a class="btn button btn-primary btn-large btn-block watch" data-id={{id}}>Watch</a>
-			</div>
-		</li>
-	</script>
+
+		<script id="videoTpl" type="text/template">
+			<li class="block">
+				<div class="tile">
+					<img class="tile-image big-illustration" src="{{thumbnail}}"/>
+					<h3 class="tile-title">{{title}}</h3>
+					<p>Duration: {{duration}}</p>
+					<a class="btn button btn-primary btn-large btn-block watch" data-id={{id}}>Watch</a>
+				</div>
+			</li>
+		</script>
+		<script id="audioTpl" type="text/template">
+			<li class="block">
+				<div class="tile">
+					<h3 class="tile-title" id="title">{{title}}</h3>
+					<h4 class="tile-title" id="name">{{name}}</h4>
+					<p>Duration: {{duration}}</p>
+					<a class="btn button btn-primary btn-large btn-block watch" data-id={{id}}>Listen</a>
+				</div>
+			</li>
+		</script>
 </body>
 </html>

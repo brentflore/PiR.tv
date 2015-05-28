@@ -77,7 +77,7 @@ io.sockets.on('connection', function (socket) {
 
      if(data.action === "tap"){
          if(ss != undefined){
-            ss.emit("controlling", {action:"enter"});
+            ss.emit("controlling", {action:"tap"});
             }
      }
      else if(data.action === "swipeLeft"){
@@ -90,6 +90,7 @@ io.sockets.on('connection', function (socket) {
            ss.emit("controlling", {action:"goRight"});
            }
      }
+
    }
  });
 
@@ -112,4 +113,20 @@ io.sockets.on('connection', function (socket) {
     }
 
  });
+
+    socket.on('modus', function(data){
+        console.log("{modus, "+data+"}");
+        socket.broadcast.emit('modus',data);
+    });
+
+    socket.on("audio", function(data){
+        if( data.action === "playAudio"){
+            socket.broadcast.emit('audio',data);
+
+        }
+        else{
+                socket.broadcast.emit('audio',data);
+
+        }
+    });
 });
